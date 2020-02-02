@@ -11,9 +11,9 @@ const projectSchema = new mongoose.Schema({
   user_id: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
-    required: true,
+
   },
-  Name: {
+  name: {
     type: String,
     required: true,
     minlength: 6,

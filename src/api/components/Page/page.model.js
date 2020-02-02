@@ -11,9 +11,9 @@ const pageSchema = new mongoose.Schema({
   project_id: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Project',
-    required: true,
+
   },
-  Name: {
+  name: {
     type: String,
     required: true,
     minlength: 6,

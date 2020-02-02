@@ -1,6 +1,6 @@
+/* eslint-disable prefer-destructuring */
 const httpStatus = require('http-status');
-const PageModel = require('./page.model');
-// const userController = require('./../../controllers/user.controller');
+const ProjectModel = require('./project.model');
 
 /**
  * Get Page
@@ -9,10 +9,10 @@ const PageModel = require('./page.model');
 
 exports.get = async (req, res, next) => {
   try {
-    const pages = await PageModel.find();
+    const project = await ProjectModel.find();
     res.status(httpStatus.OK);
     res.json({
-      pages,
+      project,
     });
   } catch (e) {
     next(e);
@@ -23,11 +23,12 @@ exports.get = async (req, res, next) => {
 exports.save = async (req, res, next) => {
   try {
     const data = req.body;
-    const newPage = new PageModel(data);
-    const savedPage = await newPage.save();
+
+    const newProject = new ProjectModel(data);
+    const savedProject = await newProject.save();
     res.status(httpStatus.CREATED);
     res.json({
-      data: savedPage,
+      data: savedProject,
     });
   } catch (e) {
     next(e);
